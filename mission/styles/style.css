@@ -41,3 +41,15 @@ img {
     width: 150px;
     padding: 50px 225px;
 }
+
+.dark {
+    background-color: #333;
+}
+
+.dark h1, .dark p, .dark h3, .dark ol {
+    color: white;
+}
+
+.dark h4 {
+    color: #A0D4ED;
+}
