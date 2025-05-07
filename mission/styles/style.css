@@ -4,33 +4,33 @@ body {
 }
 
 h1 {
-text-align: center;
-letter-spacing: .15em;
-padding: 60px 0 10px 0;
-font-size: 2.5em;
+    text-align: center;
+    letter-spacing: .15em;
+    padding: 60px 0 10px 0;
+    font-size: 2.5em;
 }
 
 h4 {
-text-align: center;
-color: #006EB6;
-letter-spacing: .15em;
+    text-align: center;
+    color: #006EB6;
+    letter-spacing: .15em;
 }
 
 p {
-font-size: 20px;
-line-height: 1.5em;
-padding: 40px 0 0 0;
+    font-size: 20px;
+    line-height: 1.5em;
+    padding: 40px 0 0 0;
 }
 
 h3 {
-font-size: 20px;
-font-style: italic;
-font-weight: 100;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 100;
 }
 
 ol {
-font-size: 20px;
-line-height: 1.5em;
+    font-size: 20px;
+    line-height: 1.5em;
 }
 
 li {
