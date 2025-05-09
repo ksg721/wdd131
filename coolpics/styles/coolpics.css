@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
 
 body {
-    margin: 0;
+    margin: 0 auto;
     background-color: rgb(228, 226, 226);
 }
 
 header {
-    background-color: rgb(76, 70, 152);
+    background-color: #52489c;
     padding: 10px;
 }
 
@@ -21,6 +21,13 @@ h1  {
     margin: 0 20%;
 }
 
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
 h4 {
     color: white;
     text-align: center;
@@ -30,10 +37,12 @@ h4 {
 
 nav {
     font-family: Arial, Helvetica,sans-serif;
+    text-align: center;
 }
 
 h3 {
     color: black;
+    text-align: center;
 }
 
 a {
@@ -44,13 +53,44 @@ a {
 }
 
 img {
-    width: 100%;
+    width: 250px;
+    height: 250px;
     border-style: solid;
     border-color: black;
     border: 10px solid white;
     box-shadow: 5px 5px 10px black;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
 }
 
 footer {
-    background-color: rgb(76, 70, 152);
+    background-color: #52489c;
+}
+
+@media screen and (min-width: 700px) {
+    .gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        }
+}
+
+@media screen and (min-width: 1000px) {
+    h4 {
+        display: none;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+
+    a {
+        padding: 0 5%;
+    }
+
+    .gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    }
 }
