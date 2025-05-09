@@ -66,6 +66,7 @@ img {
 
 footer {
     background-color: #52489c;
+    color: white;
 }
 
 @media screen and (min-width: 700px) {
