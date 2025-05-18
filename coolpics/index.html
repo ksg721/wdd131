@@ -8,22 +8,28 @@
     <script src="coolpics.js" defer></script>
 </head>
 <body>
+
     <header>
         <h1>Cool Pics 📷</h1>
         <nav>
-            <button>
+            <button id="menu-button">
                 <h4>Menu</h4>
             </button>
-            <a href="https://ksg721.github.io/wdd131/coolpics/">Home</a>
-            <a href="https://ksg721.github.io/wdd131/coolpics/">People</a>
-            <a href="https://ksg721.github.io/wdd131/coolpics/">Places</a>
-            <a href="https://ksg721.github.io/wdd131/coolpics/">About</a>
-            <a href="https://ksg721.github.io/wdd131/coolpics/">Contact</a>
+            <div class="menu hide">
+                <a href="https://ksg721.github.io/wdd131/coolpics/">Home</a>
+                <a href="https://ksg721.github.io/wdd131/coolpics/">People</a>
+                <a href="https://ksg721.github.io/wdd131/coolpics/">Places</a>
+                <a href="https://ksg721.github.io/wdd131/coolpics/">About</a>
+                <a href="https://ksg721.github.io/wdd131/coolpics/">Contact</a>
+            </div>
         </nav>
     </header>
     <main>
         <h3>Current Work</h3>
         <section class="gallery">
+                <dialog>
+                    <img src="" alt="cool pic"><button class='close-viewer'>X</button>
+                </dialog>
             <figure>
                 <img src="/wdd131/imgs/norris-sm.jpeg" alt="picture">
             </figure>
