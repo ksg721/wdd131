@@ -17,7 +17,7 @@ header {
 }
 
 #title img {
-  height: 50px;
+  width: 50px;
 }
 
 #title h1 {
@@ -46,7 +46,7 @@ header {
 }
 
 .recipe-info {
-  border: 1px solid #ccc;
+  border: 1px solid black;
   border-radius: 10px;
   max-width: 300px;
   margin: 20px auto;
@@ -77,6 +77,12 @@ header {
   font-size: 1.3rem;
 }
 
+.description {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 5px;
+}
+
 footer {
   margin-top: 30px;
   font-size: 0.85rem;
@@ -91,4 +97,60 @@ footer {
 .social a img {
   width: 30px;
   margin: 0 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media (min-width: 600px) {
+  #title {
+    padding-bottom: 20px;
+  }
+  
+    #title img {
+    width: 10%;
+  }
+  
+  #title h1 {
+    font-size: 5em;
+  }
+
+  #search input {
+    width: 70%;
+  }
+  
+  .recipe-info {
+    display: flex;
+    gap: 20px;
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .recipe-info img {
+    width: 25%;
+  }
+
+  .recipe-type {
+    font-size: 2em;
+  }
+
+  .recipe-name {
+    font-size: 3em;
+  }
+
+  .description {
+    font-size: 2em;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 20px;
+  }
+
+  footer a {
+    margin: 10px 0;
+  }
 }
