@@ -38,9 +38,14 @@ header {
   font-size: 1em;
 }
 
-#search img {
+#search-btn {
+  background-color: white;
   border: 1px solid #ccc;
   border-radius: 0 10px 10px 0;
+
+}
+
+#search img {
   padding: 10px;
   width: 38px;
 }

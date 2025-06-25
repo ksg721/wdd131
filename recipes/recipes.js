@@ -5,7 +5,7 @@ const recipes = [
 		isBasedOn: '',
 		cookTime: '30 Min',
 		datePublished: '2016-10-16',
-		tags: ['Waffles', 'Sweet Potato', 'Side'],
+		tags: ['waffles', 'sweet Potato', 'side'],
 		description: 'Savory waffles made with Sweet potato with a hint of Ginger',
 		image: './images/sweet-potato-waffle-md.jpg',
 		recipeIngredient: [
@@ -40,7 +40,7 @@ const recipes = [
 		isBasedOn: '',
 		cookTime: '20 min',
 		datePublished: '',
-		tags: ['Chicken', 'Entree'],
+		tags: ['chicken', 'entree'],
 		description:
 			'Delicious quick and easy creamy rice dish. The mustard, mushrooms, and lemon all blend together wonderfully',
 		image: './images/escalopes-de-poulet-a-la-creme.webp',
@@ -72,7 +72,7 @@ const recipes = [
 		isBasedOn: '',
 		cookTime: '30 min',
 		datePublished: '2018-09-19',
-		tags: ['Potatoes', 'side'],
+		tags: ['potatoes', 'side'],
 		description:
 			'Easy and delicious oven roasted potatoes that go great with almost anything.',
 		image: './images/roasted-potatoes.webp',
@@ -102,7 +102,7 @@ const recipes = [
 		isBasedOn: '',
 		cookTime: '20 min',
 		datePublished: '2018-09-19',
-		tags: ['Southwest', 'entree'],
+		tags: ['southwest', 'entree'],
 		description:
 			'Black beans and tomatoes served over a bed of rice. Top with cheese and scoop up with tortilla chips for maximum enjoyment.',
 		image: './images/black-beans-and-rice.jpg',
@@ -279,3 +279,107 @@ const recipes = [
 		rating: 4
 	}
 ]
+
+function getRandomIndex(num) {
+	return Math.floor(Math.random() * num);
+}
+
+function getRandomRecipe() {
+	const index = getRandomIndex(recipes.length);
+	return recipes[index];
+}
+
+function createRecipeHTML(recipe) {
+	return `
+		<img src="${recipe.image}" alt="${recipe.name}">
+		<div class="text-content">
+			<p class="recipe-type">${createTagsHTML(recipe.tags)}</p>
+			<p class="recipe-name">${recipe.name}</p>
+			${createRatingHTML(recipe.rating)}
+			<p class="description">${recipe.description}</p>
+		</div>
+	`;
+}
+
+function createTagsHTML(tags = []) {
+	return tags.map(tag => `<span class="tag">${tag}</span>`).join(", ");
+}
+
+function createRatingHTML(rating = 0) {
+	const fullStars = Math.floor(rating);
+	let stars = "";
+
+	for (let i = 0; i < 5; i++) {
+		if (i < fullStars) {
+			stars += `<span aria-hidden="true" class="icon-star">⭐</span>`;
+		} else {
+			stars += `<span aria-hidden="true" class="icon-star-empty">☆</span>`;
+		}
+	}
+
+	return `
+		<span class="rating" role="img" aria-label="Rating: ${rating} out of 5 stars">
+			${stars}
+		</span>
+	`;
+}
+
+function init() {
+	const main = document.querySelector("main");
+	const recipe = getRandomRecipe();
+	const container = document.createElement("div");
+	container.className = "recipe-info";
+	container.innerHTML = createRecipeHTML(recipe);
+	main.appendChild(container);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+	init();
+	document.getElementById("search-btn").addEventListener("click", searchHandler);
+	document.getElementById("search-input").addEventListener("keydown", e => {
+	if (e.key === "Enter") {
+		searchHandler(e);
+	}
+});
+});
+
+function searchHandler(event) {
+	event.preventDefault();
+
+	const input = document.getElementById("search-input");
+	const query = input.value.toLowerCase();
+
+	const filtered = filterRecipes(query);
+	renderRecipes(filtered);
+}
+
+function filterRecipes(query) {
+	return recipes
+		.filter(recipe => {
+			const inName = recipe.name.toLowerCase().includes(query);
+			const inDescription = recipe.description.toLowerCase().includes(query);
+			const inTags = recipe.tags?.some(tag => tag.toLowerCase().includes(query));
+			const inIngredients = recipe.recipeIngredient?.some(ing =>
+				ing.toLowerCase().includes(query)
+			);
+			return inName || inDescription || inTags || inIngredients;
+		})
+		.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function renderRecipes(recipeList) {
+	const main = document.querySelector("main");
+	main.innerHTML = "";
+
+	if (recipeList.length === 0) {
+		main.innerHTML = "<p>No recipes found matching your search.</p>";
+		return;
+	}
+
+	recipeList.forEach(recipe => {
+		const container = document.createElement("div");
+		container.className = "recipe-info";
+		container.innerHTML = createRecipeHTML(recipe);
+		main.appendChild(container);
+	});
+}
