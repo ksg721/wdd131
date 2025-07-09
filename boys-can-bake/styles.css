@@ -288,12 +288,7 @@ footer p {
 
   footer {
     flex-direction: row;
-    border-top: 1px solid #ccc;
-    padding: 1rem;
-    text-align: center;
-    background-color: #f9f9f9;
     margin-top: 2rem;
-    display: flex;
     justify-content: space-around;
     }
   }
