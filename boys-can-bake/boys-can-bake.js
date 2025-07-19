@@ -173,6 +173,16 @@ function showCartPopup() {
       showCartPopup();
     });
     popup.appendChild(clearBtn);
+
+    // ➕ Order button
+    const orderBtn = document.createElement('button');
+    orderBtn.textContent = 'Order';
+    orderBtn.style.marginRight = '0.5rem';
+    orderBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      alert('Ordered!');
+    });
+    popup.appendChild(orderBtn);
   }
 
   const closeBtn = document.createElement('button');
