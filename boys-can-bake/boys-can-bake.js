@@ -2,7 +2,6 @@ const body = document.body;
 const cartBtn = document.getElementById('nav-cart');
 const productsContainer = document.getElementById('products-container');
 
-// Product data as array of objects
 const products = [
   {
     name: 'Banana Bread',
@@ -27,12 +26,10 @@ const products = [
   }
 ];
 
-// Load cart from localStorage or start empty
 let cart = JSON.parse(localStorage.getItem('cart')) || {};
 
-// Render products dynamically
 function renderProducts() {
-  productsContainer.innerHTML = ''; // clear container
+  productsContainer.innerHTML = '';
 
   products.forEach(product => {
     const productDiv = document.createElement('div');
@@ -50,13 +47,11 @@ function renderProducts() {
   });
 }
 
-// Add event listeners to all Add to cart buttons
 function addAddToCartListeners() {
   const addButtons = document.querySelectorAll('.product-info button');
   addButtons.forEach(button => {
     button.addEventListener('click', e => {
       const productName = e.target.closest('.product-info').querySelector('h2').textContent;
-      // Use object to track quantities
       cart[productName] = (cart[productName] || 0) + 1;
       saveCart();
       updateCartDisplay();
@@ -64,28 +59,23 @@ function addAddToCartListeners() {
   });
 }
 
-// Save cart to localStorage
 function saveCart() {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// Calculate total price using reduce on cart entries
 function calculateTotalPrice() {
   return Object.entries(cart).reduce((total, [itemName, qty]) => {
-    // Find product price using array find
     const product = products.find(p => p.name === itemName);
     return total + (product ? product.price * qty : 0);
   }, 0);
 }
 
-// Update the cart button display with total item count
 function updateCartDisplay() {
   const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
   cartBtn.textContent = `Cart (${totalItems})`;
   updateSpecialBanner();
 }
 
-// Create and update the special banner message
 function updateSpecialBanner() {
   let banner = document.getElementById('special-banner');
   if (!banner) {
@@ -117,7 +107,6 @@ function updateSpecialBanner() {
   }
 }
 
-// Show cart popup with current items and total price
 function showCartPopup() {
   const oldPopup = document.getElementById('cart-popup');
   if (oldPopup) oldPopup.remove();
@@ -136,19 +125,16 @@ function showCartPopup() {
   } else {
     const list = document.createElement('ul');
 
-    // Use forEach over cart entries to list each item
     Object.entries(cart).forEach(([itemName, qty]) => {
       const product = products.find(p => p.name === itemName);
       if (!product) return;
 
       const li = document.createElement('li');
 
-      // Name and quantity
       const itemSpan = document.createElement('span');
       itemSpan.textContent = `${itemName} × ${qty}`;
       li.appendChild(itemSpan);
 
-      // Remove button to decrease quantity
       const removeBtn = document.createElement('button');
       removeBtn.textContent = 'Remove';
       removeBtn.classList.add('remove-btn');
@@ -170,14 +156,12 @@ function showCartPopup() {
 
     popup.appendChild(list);
 
-    // Total price line
     const totalLine = document.createElement('p');
     totalLine.style.fontWeight = 'bold';
     totalLine.style.marginTop = '0.75rem';
     totalLine.textContent = `Total: $${calculateTotalPrice()}`;
     popup.appendChild(totalLine);
 
-    // Clear cart button
     const clearBtn = document.createElement('button');
     clearBtn.textContent = 'Clear Cart';
     clearBtn.style.marginBottom = '0.5rem';
@@ -191,7 +175,6 @@ function showCartPopup() {
     popup.appendChild(clearBtn);
   }
 
-  // Close button
   const closeBtn = document.createElement('button');
   closeBtn.textContent = 'Close';
   closeBtn.addEventListener('click', e => {
@@ -205,7 +188,6 @@ function showCartPopup() {
 
 cartBtn.addEventListener('click', showCartPopup);
 
-// Initialize app: render products, add listeners, update cart display
 function init() {
   renderProducts();
   addAddToCartListeners();

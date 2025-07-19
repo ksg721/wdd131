@@ -4,7 +4,6 @@ body {
   padding: 1rem;
 }
 
-/* Header */
 header {
   background-color: #f5f7f2;
   padding: 1rem;
@@ -69,7 +68,6 @@ header h1 {
   background-color: #98a383;
 }
 
-/* Cart Popup */
 #cart-popup {
   position: fixed;
   top: 60px;
@@ -153,7 +151,6 @@ header h1 {
   background-color: #98a383;
 }
 
-/* Product Grid (Index Page) */
 main {
   display: grid;
   grid-template-columns: 1fr;
@@ -215,7 +212,6 @@ main {
   background-color: #98a383;
 }
 
-/* About Page Layout */
 .about-main {
   display: flex;
   flex-direction: column;
@@ -256,7 +252,6 @@ main {
   line-height: 1.6;
 }
 
-/* Social links */
 .social-links {
   display: flex;
   flex-direction: column;
@@ -285,7 +280,6 @@ main {
   background-color: #ffffff;
 }
 
-/* Footer */
 footer {
   border-top: 1px solid #ccc;
   padding: 1rem;
@@ -306,7 +300,6 @@ footer a {
   transition: color 0.2s ease;
 }
 
-/* Media Queries */
 @media (min-width: 600px) {
   .nav {
     flex-direction: row;
