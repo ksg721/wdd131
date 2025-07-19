@@ -51,11 +51,11 @@ header h1 {
 }
 
 .nav-list li:hover {
-  color: #ABB39C;
+  color: #abb39c;
 }
 
 #nav-cart {
-  background-color: #ABB39C;
+  background-color: #abb39c;
   color: white;
   font-size: 1.1rem;
   padding: 0.5rem 1rem;
@@ -66,6 +66,90 @@ header h1 {
 }
 
 #nav-cart:hover {
+  background-color: #98a383;
+}
+
+/* Cart Popup */
+#cart-popup {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  min-width: 220px;
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+  color: #4a5143;
+}
+
+#cart-popup h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+#cart-popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem 0;
+}
+
+#cart-popup li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: flex-start;
+  gap: 0.25rem;
+  font-size: 0.95rem;
+}
+
+#cart-popup li > span {
+  font-weight: 600;
+}
+
+#cart-popup li button {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  width: auto;
+  white-space: nowrap;
+  align-self: flex-start; /* align left under text */
+}
+
+#cart-popup li button:hover {
+  background-color: #bbb;
+}
+
+#cart-popup p {
+  font-weight: bold;
+  text-align: center;
+  margin: 0.5rem 0 0 0;
+}
+
+#cart-popup button {
+  display: block;
+  width: 100%;
+  background-color: #abb39c;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+#cart-popup button:hover {
   background-color: #98a383;
 }
 
@@ -91,9 +175,16 @@ main {
 }
 
 .product-info h2 {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
   font-size: 1.4rem;
   color: #4a5143;
+}
+
+.product-info .price {
+  font-weight: bold;
+  color: #4a5143;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
 }
 
 .product-info img {
@@ -110,7 +201,7 @@ main {
 }
 
 .product-info button {
-  background-color: #ABB39C;
+  background-color: #abb39c;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -145,7 +236,7 @@ main {
   width: 100%;
   max-width: 300px;
   border-radius: 1rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .about-text {
@@ -191,7 +282,7 @@ main {
   width: 30px;
   height: 30px;
   border-radius: 0.5rem;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 /* Footer */
